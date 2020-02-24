@@ -1,0 +1,200 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    height: 100%;
+}
+
+header {
+    text-align: center;
+}
+
+h1,h2{
+    font-family: 'Comfortaa', sans-serif;
+    margin: 0px;
+}
+
+div#change_username, section#input_zone {
+    border: 5px outset #8258FA;
+}
+
+div#change_username {
+    height: 3%;
+    display: inline-block;
+    background-color: #BCA9F5;
+}
+
+#chatroom {
+    border: 5px inset #8258FA;
+    height: 85%;
+    overflow: auto;
+    flex-basis: 80%;
+}
+
+section#input_zone {
+    height: 7%;
+    text-align: center;
+    background-color: #BCA9F5;
+    align-self: flex-end;
+}
+
+.vertical-align {
+    align-self: flex-end;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+input#username {
+    font-family: 'Comfortaa', sans-serif;
+}
+
+input#message {
+    display: inline-block;
+    width: 88%;
+    height: 70%;
+    font-family: 'Comfortaa', sans-serif;
+    top: 25px;
+    font-size: 16px;
+    border:0;
+    border-bottom:1px solid grey;
+    transition: border-color 200ms ease-in-out;
+    outline:none;
+    padding: 0;
+    margin: 0;
+}
+
+button#send_message {
+    display: inline-block;
+    height: 70%;
+    width: 10%;
+}
+
+p.message {
+    margin: 0px;
+    width: 100%;
+    height: 40px;
+    font-size: 2vh;
+    font-family: 'Comfortaa', sans-serif;
+    padding: 1vh;
+}
+
+.message:nth-child(even) {
+    background-color: #81DAF5;
+}
+
+.message:nth-child(odd) {
+    background-color: #81BEF7;
+}
+
+.big-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.online-user-wrapper{
+    flex-basis: 23%;
+    height: 100%;
+}
+
+.chat-wrapper{
+    flex-basis: 75%;
+    margin: 0px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 10px;
+}
+
+/*online users*/
+.list-item{
+    margin: 5px;
+    padding: 5px;
+}
+
+#users-list{
+    list-style-type: none;
+}
+
+.online-user-header-container{
+    margin: 15px 0;
+}
+
+#input_zone{
+    margin-top: 10px;
+}
+
+.btn {
+    position: relative;
+
+    display: block;
+    margin: 20px 5px;
+    padding: 0;
+
+    overflow: hidden;
+
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+
+    background-color: rgba(59,218,255,0.7);
+    color: #ecf0f1;
+
+    transition: background-color .3s;
+}
+
+
+.btn:hover, .btn:focus {
+    background-color: rgba(59,218,255,0.81);
+}
+
+/* The Modal */
+.modal {
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#nickname-input{
+
+}

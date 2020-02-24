@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" const="text/html;charset=UTF-8" />
+    <link href="http://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="style.css" >
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <title>Simple Chat App</title>
+</head>
+
+<body>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <h3>What's your nickname?</h3>
+            <input id="nickname-input" type="text" />
+        </div>
+
+    </div>
+    <div class="big-wrapper">
+        <div class="online-user-wrapper">
+            <div class="online-user-header-container">
+                <header>
+                    <h2>Online Users</h2>
+                </header>
+            </div>
+            <div>
+                <ul id="users-list">
+
+                </ul>
+            </div>
+        </div>
+        <div class="chat-wrapper">
+            <div>
+                <header>
+                    <h1>Super Chat</h1>
+                </header>
+            </div>
+
+            <div id="chatroom">
+                <section id="feedback"></section>
+            </div>
+
+            <div id="input_zone">
+                <input id="message" class="vertical-align" type="text" />
+                <button id="send_message" class="vertical-align btn" type="button">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="chat.js"></script>
+    <script src="modalScript.js"></script>
+</body>
+</html>
