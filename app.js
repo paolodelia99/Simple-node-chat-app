@@ -1,5 +1,6 @@
 const express = require('express');
-const app = express()
+const app = express();
+let randomColor = require('randomcolor')
 
 //set the template engine ejs
 app.set('view engine','ejs');
@@ -26,13 +27,16 @@ const connnections = []
 io.on('connection', (socket) => {
     console.log('New user connected');
     connnections.push(socket)
+    //initialize a random color for the socket
+    let color = randomColor();
 
     socket.username = 'Anonymous';
+    socket.color = color;
 
     //listen on change_username
     socket.on('change_username', data => {
         socket.username = data.nickName;
-        users.push(socket.username);
+        users.push({username: socket.username, color: socket.color});
         updateUsernames();
     })
 
@@ -44,7 +48,7 @@ io.on('connection', (socket) => {
     //listen on new_message
     socket.on('new_message', (data) => {
         //broadcast the new message
-        io.sockets.emit('new_message', {message : data.message, username : socket.username});
+        io.sockets.emit('new_message', {message : data.message, username : socket.username,color: socket.color});
     })
 
     //listen on typing

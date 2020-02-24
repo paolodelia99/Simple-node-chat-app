@@ -14,11 +14,13 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-            <h3>What's your nickname?</h3>
-            <input id="nickname-input" type="text" />
+            <h1 class="modal-title">What's your nickname?</h1>
+            <input id="nickname-input" class="custom-input" type="text" />
         </div>
 
     </div>
+
+    <!--Big wrapper-->
     <div class="big-wrapper">
         <div class="online-user-wrapper">
             <div class="online-user-header-container">
@@ -40,16 +42,16 @@
             </div>
 
             <div id="chatroom">
-                <section id="feedback"></section>
+                <div id="feedback"></div>
             </div>
 
             <div id="input_zone">
-                <input id="message" class="vertical-align" type="text" />
+                <input id="message" class="vertical-align custom-input" type="text" />
                 <button id="send_message" class="vertical-align btn" type="button">Send</button>
             </div>
         </div>
     </div>
-
+    <!--Scripts-->
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="chat.js"></script>
     <script src="modalScript.js"></script>

@@ -12,6 +12,7 @@
   "dependencies": {
     "ejs": "^3.0.1",
     "express": "^4.17.1",
+    "randomcolor": "^0.5.4",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {

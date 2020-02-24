@@ -9,7 +9,7 @@ $(function () {
     let chatroom = $("#chatroom");
     let feedback = $("#feedback");
     let usersList = $("#users-list");
-    let nickName = $("#nickname-input")
+    let nickName = $("#nickname-input");
 
     //Emit message
     send_message.click(function(){
@@ -27,7 +27,16 @@ $(function () {
     socket.on("new_message", (data) => {
         feedback.html('');
         message.val('');
-        chatroom.append("<p class='message'>" + data.username + ": " + data.message + "</p>")
+        console.log(data.color)
+        // chatroom.append(`<p class='message' style='color:${data.color}' >${data.username }${": "}${data.message}</p>`)
+        chatroom.append(`
+                        <div>
+                            <div class="box3 sb14">
+                              <p style='color:${data.color}' class="chat-text user-nickname">${data.username}</p>
+                              <p class="chat-text" style="color: rgba(0,0,0,0.87)">${data.message}</p>
+                            </div>
+                        </div>
+                        `)
     });
 
     //Emit a username
@@ -38,7 +47,7 @@ $(function () {
             socket.on('get users', data => {
                 let html = '';
                 for(let i=0;i<data.length;i++){
-                    html += "<li class='list-item'>"+data[i]+"</li>";
+                    html += `<li class="list-item" style="color: ${data[i].color}">${data[i].username}</li>`;
                 }
                 usersList.html(html)
             })
