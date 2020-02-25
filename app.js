@@ -2,11 +2,15 @@ const express = require('express');
 const app = express();
 let randomColor = require('randomcolor')
 
+app.use(express.static('client'));
+
 //middlewares
 app.use(express.static('public'));
 
 //routes
-app.use(express.static('client'));
+app.get('/', (req,res)=>{
+    res.sendFile(__dirname + '/client/index.html');
+})
 
 //Listen on port 5000
 server = app.listen( process.env.PORT || 5000);
