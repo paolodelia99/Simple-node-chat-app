@@ -11,7 +11,7 @@ app.use(express.static('public'));
 //routes
 app.get('/', (req,res)=>{
     res.sendFile(__dirname + '/index.html');
-    res.sendFile(__dirname+'css/style.css');
+    res.sendFile(__dirname+'/css/style.css');
 });
 
 //Listen on port 5000
