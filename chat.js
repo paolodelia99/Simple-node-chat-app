@@ -37,6 +37,7 @@ $(function () {
                             </div>
                         </div>
                         `)
+        keepTheChatRoomToTheBottom()
     });
 
     //Emit a username
@@ -67,3 +68,8 @@ $(function () {
         feedback.html("<p><i>" + data.username + " is typing a message..." + "</i></p>")
     });
 });
+
+const keepTheChatRoomToTheBottom = () => {
+    const chatroom = document.getElementById('chatroom');
+    chatroom.scrollTop = chatroom.scrollHeight - chatroom.clientHeight;
+}
