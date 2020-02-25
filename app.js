@@ -2,25 +2,20 @@ const express = require('express');
 const app = express();
 let randomColor = require('randomcolor')
 
-//set the template engine ejs
-app.set('view engine','ejs');
-
 //middlewares
 app.use(express.static('public'));
 
 //routes
-app.get('/', (req,res)=>{
-    res.sendFile(__dirname + '/index.html');
-});
+app.use(express.static('client'));
 
 //Listen on port 5000
 server = app.listen( process.env.PORT || 5000);
 
 //socket.io instantiation
-const io = require("socket.io")(server)
+const io = require("socket.io")(server);
 
 const users = [];
-const connnections = []
+const connnections = [];
 
 //listen on every connection
 io.on('connection', (socket) => {
