@@ -15,7 +15,7 @@ app.get('/', (req,res)=>{
 });
 
 //Listen on port 5000
-server = app.listen(5000);
+server = app.listen( process.env.PORT || 5000);
 
 //socket.io instantiation
 const io = require("socket.io")(server)
