@@ -1,26 +1,24 @@
 const express = require('express');
 const app = express();
-let randomColor = require('randomcolor')
-
-//set the template engine ejs
-app.set('view engine','ejs');
+let randomColor = require('randomcolor');
+const uuid = require('uuid');
 
 //middlewares
 app.use(express.static('public'));
 
 //routes
 app.get('/', (req,res)=>{
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/client/index.html');
 });
 
 //Listen on port 5000
 server = app.listen( process.env.PORT || 5000);
 
 //socket.io instantiation
-const io = require("socket.io")(server)
+const io = require("socket.io")(server);
 
 const users = [];
-const connnections = []
+const connnections = [];
 
 //listen on every connection
 io.on('connection', (socket) => {
@@ -34,8 +32,10 @@ io.on('connection', (socket) => {
 
     //listen on change_username
     socket.on('change_username', data => {
+        let id = uuid.v4();
+        socket.id = id;
         socket.username = data.nickName;
-        users.push({username: socket.username, color: socket.color});
+        users.push({id, username: socket.username, color: socket.color});
         updateUsernames();
     })
 
@@ -59,7 +59,17 @@ io.on('connection', (socket) => {
     socket.on('disconnect', data => {
         if(!socket.username)
             return;
-        users.splice(users.indexOf(socket.username),1);
+        //find the user and delete from the users list
+        let user = undefined;
+        for(let i= 0;i<users.length;i++){
+            if(users[i].id === socket.id){
+                user = users[i];
+                break;
+            }
+        }
+        users.splice(user,1);
+        //Update the users list
+        updateUsernames();
         connnections.splice(connnections.indexOf(socket),1);
     })
 })

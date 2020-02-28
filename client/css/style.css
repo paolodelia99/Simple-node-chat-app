@@ -221,10 +221,8 @@ button#send_message {
     border-bottom: solid 1px grey;
     -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
     transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
-    background: transparent;
-    background-position: -200px 0;
     background-size: 200px 100%;
-    background-repeat: no-repeat;
+    background: transparent no-repeat -200px 0;
 }
 
 #nickname-input:focus{
@@ -232,9 +230,6 @@ button#send_message {
 }
 
 /*MEDIA QUERIES*/
-@media screen and (min-width: 240px) and (max-width: 375px)  {
-
-}
 
 @media screen and (min-width: 375px) and (max-width: 568px)  {
     .custom-input{
@@ -259,16 +254,3 @@ button#send_message {
         width: 85%;
     }
 }
-
-@media screen and (min-width: 992px) and (max-width: 1200px)  {
-
-}
-
-@media screen and (min-width: 1200px) and (max-width: 1400px)  {
-
-}
-
-@media screen and (min-width: 1700px) and (max-width: 1900px)  {
-
-}
-

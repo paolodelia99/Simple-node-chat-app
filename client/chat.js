@@ -28,7 +28,6 @@ $(function () {
         feedback.html('');
         message.val('');
         console.log(data.color)
-        // chatroom.append(`<p class='message' style='color:${data.color}' >${data.username }${": "}${data.message}</p>`)
         chatroom.append(`
                         <div>
                             <div class="box3 sb14">
