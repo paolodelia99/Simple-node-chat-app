@@ -56,9 +56,20 @@ io.on('connection', (socket) => {
 
     //Disconnect
     socket.on('disconnect', data => {
+        //fixme: trova un modo migliore per gesitre la disconnesione di un utente
         if(!socket.username)
             return;
-        users.splice(users.indexOf(socket.username),1);
+        //find the user and delete from the users list
+        let user = undefined;
+        for(let i= 0;i<users.length;i++){
+            if(users[i].username === socket.username){
+                user = users[i];
+                break;
+            }
+        }
+        users.splice(user,1);
+        //Update the users list
+        updateUsernames();
         connnections.splice(connnections.indexOf(socket),1);
     })
 })
