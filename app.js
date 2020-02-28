@@ -57,6 +57,7 @@ io.on('connection', (socket) => {
 
     //Disconnect
     socket.on('disconnect', data => {
+        //Fixme: da rivere la disconnesione dell'user
         if(!socket.username)
             return;
         //find the user and delete from the users list
