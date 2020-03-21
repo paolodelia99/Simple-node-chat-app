@@ -23,6 +23,7 @@
 
     <!--Big wrapper-->
     <div class="big-wrapper">
+        <!-- Left Column-->
         <div class="online-user-wrapper">
             <div class="online-user-header-container">
                 <header>
@@ -30,11 +31,13 @@
                 </header>
             </div>
             <div>
+                <!--Online users goes here-->
                 <ul id="users-list">
 
                 </ul>
             </div>
         </div>
+        <!--Chat Wrapper -->
         <div class="chat-wrapper">
             <div class="super-chat-title-container">
                 <header>
@@ -42,21 +45,24 @@
                 </header>
             </div>
 
+            <!--Messages container-->
             <div id="chatroom">
                 <!--x is typing goes here-->
                 <div id="feedback"></div>
             </div>
 
+            <!-- Input zone -->
             <div id="input_zone">
                 <input id="message" class="vertical-align custom-input" type="text" />
                 <button id="send_message" class="vertical-align btn" type="button">Send</button>
             </div>
+
         </div>
     </div>
-    <!--Scripts-->
-    <script src="chat.js"></script>
-    <script src="modalScript.js"></script>
     <!--jQuery script-->
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!--Scripts-->
+    <script src="./chat.js"></script>
+    <script src="./modalScript.js"></script>
 </body>
 </html>

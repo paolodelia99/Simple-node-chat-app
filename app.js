@@ -32,7 +32,7 @@ io.on('connection', (socket) => {
 
     //listen on change_username
     socket.on('change_username', data => {
-        let id = uuid.v4();
+        let id = uuid.v4(); // create a random id for the user
         socket.id = id;
         socket.username = data.nickName;
         users.push({id, username: socket.username, color: socket.color});
@@ -57,7 +57,7 @@ io.on('connection', (socket) => {
 
     //Disconnect
     socket.on('disconnect', data => {
-        //Fixme: da rivere la disconnesione dell'user
+
         if(!socket.username)
             return;
         //find the user and delete from the users list

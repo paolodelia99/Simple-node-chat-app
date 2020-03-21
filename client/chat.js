@@ -5,17 +5,17 @@ $(function () {
     //buttons and inputs
     let message = $("#message");
     let send_message = $("#send_message");
-    let send_username = $("#send_username");
     let chatroom = $("#chatroom");
     let feedback = $("#feedback");
     let usersList = $("#users-list");
     let nickName = $("#nickname-input");
 
     //Emit message
+    // If send message btn is clicked
     send_message.click(function(){
         socket.emit('new_message', {message : message.val()})
     });
-
+    // Or if the enter key is pressed
     message.keypress( e => {
         let keycode = (e.keyCode ? e.keyCode : e.which);
         if(keycode == '13'){
@@ -27,7 +27,7 @@ $(function () {
     socket.on("new_message", (data) => {
         feedback.html('');
         message.val('');
-        console.log(data.color)
+        //append the new message on the chatroom
         chatroom.append(`
                         <div>
                             <div class="box3 sb14">
@@ -68,6 +68,7 @@ $(function () {
     });
 });
 
+// function thats keeps the chatbox stick to the bottom
 const keepTheChatRoomToTheBottom = () => {
     const chatroom = document.getElementById('chatroom');
     chatroom.scrollTop = chatroom.scrollHeight - chatroom.clientHeight;

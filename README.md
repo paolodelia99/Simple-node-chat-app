@@ -26,7 +26,7 @@ npm run server
 The app is really simple, I have my "backend" in the app.js file, while the the logic of the front-end are in the 
 public folder.
 
-This is the folder strucure: 
+This is the folder structure: 
 
 ```text
 .
@@ -141,7 +141,6 @@ $(function () {
     //buttons and inputs
     let message = $("#message");
     let send_message = $("#send_message");
-    let send_username = $("#send_username");
     let chatroom = $("#chatroom");
     let feedback = $("#feedback");
     let usersList = $("#users-list");
@@ -213,3 +212,10 @@ const keepTheChatRoomToTheBottom = () => {
 That's pretty much all you have to know! I wanna know about the 
 HTML and the CSS go to the index.html and the style.css
 
+# Author 
+
+Paolo D'Elia
+
+# License
+
+MIT
