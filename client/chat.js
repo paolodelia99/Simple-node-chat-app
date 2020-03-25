@@ -55,7 +55,7 @@ $(function () {
     });
 
     //Emit typing
-    message.bind("keypress", e => {
+    message.on("keypress", e => {
         let keycode = (e.keyCode ? e.keyCode : e.which);
         if(keycode != '13'){
             socket.emit('typing')

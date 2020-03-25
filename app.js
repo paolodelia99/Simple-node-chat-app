@@ -3,6 +3,9 @@ const app = express();
 let randomColor = require('randomcolor');
 const uuid = require('uuid');
 
+//Disable x-powered-by header
+app.disable('x-powered-by')
+
 //middlewares
 app.use(express.static('public'));
 
