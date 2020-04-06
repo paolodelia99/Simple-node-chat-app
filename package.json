@@ -18,7 +18,8 @@
     "uuid": "^7.0.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "minimist": ">=1.2.3"
   },
   "engines": {
     "node": "12.13.1"
