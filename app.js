@@ -7,13 +7,15 @@ const uuid = require('uuid');
 //Disable x-powered-by header
 app.disable('x-powered-by');
 
-//middlewares
-app.use(express.static('client'));
 
 //routes
 app.get('/', (req,res)=>{
     res.sendFile(__dirname + '/client/index.html');
 });
+
+//middlewares
+app.use(express.static('client'));
+
 
 //Listen on port 5000
 server = app.listen( process.env.PORT || 5000);
