@@ -3,13 +3,12 @@ const app = express();
 let randomColor = require('randomcolor');
 const uuid = require('uuid');
 
-app.use(express.static('client'));
 
 //Disable x-powered-by header
 app.disable('x-powered-by');
 
 //middlewares
-app.use(express.static('public'));
+app.use(express.static('client'));
 
 //routes
 app.get('/', (req,res)=>{
