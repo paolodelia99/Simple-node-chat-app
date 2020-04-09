@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
-let randomColor = require('randomcolor')
+let randomColor = require('randomcolor');
+const uuid = require('uuid');
 
-app.use(express.static('client'));
+//Disable x-powered-by header
+app.disable('x-powered-by');
 
 //middlewares
 app.use(express.static('public'));
@@ -10,7 +12,7 @@ app.use(express.static('public'));
 //routes
 app.get('/', (req,res)=>{
     res.sendFile(__dirname + '/client/index.html');
-})
+});
 
 //Listen on port 5000
 server = app.listen( process.env.PORT || 5000);
@@ -33,8 +35,10 @@ io.on('connection', (socket) => {
 
     //listen on change_username
     socket.on('change_username', data => {
+        let id = uuid.v4(); // create a random id for the user
+        socket.id = id;
         socket.username = data.nickName;
-        users.push({username: socket.username, color: socket.color});
+        users.push({id, username: socket.username, color: socket.color});
         updateUsernames();
     })
 
@@ -56,13 +60,13 @@ io.on('connection', (socket) => {
 
     //Disconnect
     socket.on('disconnect', data => {
-        //fixme: trova un modo migliore per gesitre la disconnesione di un utente
+
         if(!socket.username)
             return;
         //find the user and delete from the users list
         let user = undefined;
         for(let i= 0;i<users.length;i++){
-            if(users[i].username === socket.username){
+            if(users[i].id === socket.id){
                 user = users[i];
                 break;
             }
