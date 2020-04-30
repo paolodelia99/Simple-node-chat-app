@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 let randomColor = require('randomcolor');
-const uuid = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 
 
 //Disable x-powered-by header
@@ -38,7 +38,7 @@ io.on('connection', (socket) => {
 
     //listen on change_username
     socket.on('change_username', data => {
-        let id = uuid.v4(); // create a random id for the user
+        let id = uuidv4(); // create a random id for the user
         socket.id = id;
         socket.username = data.nickName;
         users.push({id, username: socket.username, color: socket.color});

@@ -12,14 +12,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ejs": "^3.0.1",
+    "ejs": "^3.1.2",
     "express": "^4.17.1",
     "randomcolor": "^0.5.4",
     "socket.io": "^2.3.0",
     "uuid": "latest"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.3"
   },
   "engines": {
     "node": "12.13.1"
