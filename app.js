@@ -23,8 +23,8 @@ server = app.listen( process.env.PORT || 5000);
 //socket.io instantiation
 const io = require("socket.io")(server);
 
-const users = [];
-const connnections = [];
+let users = [];
+let connnections = [];
 
 //listen on every connection
 io.on('connection', (socket) => {
@@ -74,7 +74,7 @@ io.on('connection', (socket) => {
                 break;
             }
         }
-        users.splice(user,1);
+        users = users.filter( x => x !== user);
         //Update the users list
         updateUsernames();
         connnections.splice(connnections.indexOf(socket),1);
