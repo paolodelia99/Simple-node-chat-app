@@ -7,7 +7,7 @@ const uuid = require('uuid');
 app.disable('x-powered-by')
 
 //middlewares
-app.use(express.static('public'));
+app.use(express.static('client'));
 
 //routes
 app.get('/', (req,res)=>{
